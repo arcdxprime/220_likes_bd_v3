@@ -148,7 +148,7 @@ async def send_multiple_requests(uid, server_name, url):
     msg = create_protobuf_message(uid, server_name)
     enc_uid = encrypt_message(msg)
     tokens = load_tokens(server_name)
-    tasks = [send_request(enc_uid, tokens[i % len(tokens)]["token"], url) for i in range(300)]
+    tasks = [send_request(enc_uid, tokens[i % len(tokens)]["token"], url) for i in range(101)]
     return await asyncio.gather(*tasks)
 
 def create_protobuf(uid):
